@@ -509,8 +509,7 @@ body::before {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%; /* Centers the person vertically */
-  transform: scale(1.1); /* Slight zoom for better focus */
+  object-position: 80% 30%; /* Shifting the person to the right and adjusting vertical centering */
 }
 
 /* =============== SKILLS SECTION =============== */
