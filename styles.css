@@ -509,7 +509,7 @@ body::before {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 92% 30%; /* Shifting the person further to the right to reduce the gap and center them */
+  object-position: 25% 15%; /* Shifting to the left to bring the person into the center */
 }
 
 /* =============== SKILLS SECTION =============== */
