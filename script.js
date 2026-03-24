@@ -110,3 +110,35 @@ modalViews.forEach((modalView) => {
     })
 })
 
+/* =============== 3D TILT ENGINE =============== */
+function initTilt(elementSelector, tiltIntensity = 7) {
+    const cards = document.querySelectorAll(elementSelector);
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -tiltIntensity;
+            const rotateY = ((x - centerX) / centerX) * tiltIntensity;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+    });
+}
+
+// Initialize tilt for all interactive components
+document.addEventListener('DOMContentLoaded', () => {
+    initTilt('.skills__box', 7);
+    initTilt('.cert__card', 12);
+    initTilt('.timeline__content', 5); // Subtle tilt for long timeline cards
+    initTilt('.contact__card', 5);
+});

@@ -305,7 +305,7 @@
 
         <!-- Experience & Achievements Section -->
         <section class="experience section reveal" id="experience">
-            <h2 class="section__title text-center">EXPERIENCE & ACHIEVEMENTS</h2>
+            <h2 class="section__title text-center"><span class="text-gradient">EXPERIENCE & ACHIEVEMENTS</span></h2>
             <p class="section__subtitle text-center">My internship experience and co-curricular achievements</p>
 
             <div class="timeline container">
@@ -350,7 +350,7 @@
 
         <!-- Education Section -->
         <section class="education section reveal" id="education">
-            <h2 class="section__title text-center">EDUCATION</h2>
+            <h2 class="section__title text-center"><span class="text-gradient">EDUCATION</span></h2>
             <p class="section__subtitle text-center">My education has been a journey of learning and development. Here
                 are the details of my academic background</p>
 
@@ -421,7 +421,7 @@
 
     <!-- =============== CONTACT SECTION =============== -->
     <section class="contact section" id="contact">
-        <h2 class="section__title text-center">CONTACT</h2>
+        <h2 class="section__title text-center"><span class="text-gradient">CONTACT</span></h2>
         <p class="section__subtitle text-center" style="color: #a4adc1; margin-bottom: 3rem;">I'd love to hear from
             you—reach out for any opportunities or questions!</p>
 
@@ -520,54 +520,9 @@
 
     <!-- Custom JS -->
     <script src="script.js"></script>
-    <script>
-        /* 3D Tilt Effect for Certification Cards */
-        const certCards = document.querySelectorAll('.cert__card');
-
-        certCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -12; // Adjusted tilt intensity
-                const rotateY = ((x - centerX) / centerX) * 12;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-            });
-        });
-
-        /* 3D Tilt Effect for Skills Category Cards */
-        const skillsCards = document.querySelectorAll('.skills__box');
-
-        skillsCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                // 7 degrees max tilt as per spec
-                const rotateX = ((y - centerY) / centerY) * -7;
-                const rotateY = ((x - centerX) / centerX) * 7;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-            });
-        });
-    </script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
 </body>
 
 </html>

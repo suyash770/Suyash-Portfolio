@@ -1651,3 +1651,69 @@ textarea.contact__input {
   transform: scale(1.1);
   box-shadow: 0 0 16px rgba(168, 85, 247, 0.5);
 }
+
+/* =============== INTERACTIVE TIMELINE & ACHIEVEMENTS =============== */
+/* Scroll Reveal Stagger */
+.reveal.active .timeline__item {
+  animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.reveal.active .timeline__item:nth-child(1) { animation-delay: 0.1s; }
+.reveal.active .timeline__item:nth-child(2) { animation-delay: 0.3s; }
+.reveal.active .timeline__item:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Pulsing Timeline Dots */
+.timeline__dot {
+  position: relative;
+  transition: 0.3s;
+}
+
+.timeline__dot i {
+  z-index: 2;
+}
+
+.timeline__dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Interactive Tags */
+.tag-modern {
+  transition: 0.3s transform, 0.3s background, 0.3s box-shadow;
+  cursor: default;
+}
+
+.tag-modern:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(138, 43, 226, 0.3) !important;
+  box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
+  color: #fff !important;
+}
+
+/* Timeline Content Hover Glow */
+.timeline__content:hover {
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.2) !important;
+}
